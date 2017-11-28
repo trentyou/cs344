@@ -1,0 +1,74 @@
+<html>
+        <head>
+        <title>My Now Amazing Webpage</title>
+        <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+        <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+        <link rel="stylesheet" href="owlcarousel/owl.theme.default.min2.css">
+        <!-- <link rel="stylesheet" href="vanilla-js-carousel.css"> -->
+        <style>
+        .owl-dots {display: none;}
+        .item {height: 300px; width: 160px; background-repeat: no-repeat; background-cover: cover;}
+        
+        </style>
+        </head>
+        <body>
+            
+                <!-- <div class="js-Carousel" id="carousel">
+                        <ul>
+
+                            <li><div style="width: 100%; height: 100px; background-color:red">test</div></li>
+                            <li><div style="width: 100px; height: 100px; background-color:red">test</div></li>
+                            <li><div style="width: 100px; height: 100px; background-color:red">test</div></li>
+                            <li><div style="width: 100px; height: 100px; background-color:red">test</div></li>
+                            <li><div style="width: 100px; height: 100px; background-color:red">test</div></li>
+                        </ul>
+                    </div> -->
+      
+                <div class="owl-carousel owl-theme" style="width: 1000px; height: 500px">
+                        <div class="item" style="background-image: url('Bitmap1.png')"></div>
+                        <div class="item" style="background-image: url('Bitmap1.png')"></div>
+                        <div class="item" style="background-image: url('Bitmap1.png')"></div>
+                        <div class="item" style="background-image: url('Bitmap1.png')"></div>
+                        <div class="item" style="background-image: url('Bitmap1.png')"></div>
+                        <!-- <div class="item"><h4>6</h4></div> -->
+                        <!-- <div class="item"><h4>7</h4></div>
+                        <div class="item"><h4>8</h4></div>
+                        <div class="item"><h4>9</h4></div>
+                        <div class="item"><h4>10</h4></div>
+                        <div class="item"><h4>11</h4></div>
+                        <div class="item"><h4>12</h4></div> -->
+                    </div>
+      
+                    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+                    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+                    <script src="owlcarousel/owl.carousel.min.js"></script>
+                    <script src="vanilla-js-carousel.min.js"></script>
+      
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    //nav:true,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    },
+    autoplay:true,
+    autoplayTimeout:3000,
+    autoplayHoverPause:true
+})
+          });
+        </script>
+      
+        </body>
+      </html>

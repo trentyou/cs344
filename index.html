@@ -1,0 +1,576 @@
+<html>
+
+<head>
+    <title>Save On Foods</title>
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+
+    <style>
+        .item {
+            margin-top: 10px;
+            border: lightgray 1px solid;
+            padding: 10px;
+        }
+        .carouselItemImage {
+            height: 150px;
+            width: 150px;
+        }
+        .carouselProductName {
+            font-size: 80%;
+            font-family: Arial;
+            height: 50px;
+        }
+        .carouselProductPrice {
+            font-weight: bold;
+        }
+        .addToCartImg {
+            height: 32px;
+            width: 87px;
+        }
+
+        .prompt-background {
+            height: 100%;
+            width: 100%;
+            top: 0px;
+            left: 0px;
+            position:fixed;
+            z-index:990;
+            background:rgba(0, 0, 0, 0.75);
+        }
+        .popup-inner {
+            top: 25%;
+            left: 12.5%;
+            width: 70%;
+            font-family: Arial;
+            text-align: center;
+            padding: 40px;
+            border-radius: 5px;
+            position: absolute;
+            background: #fff;
+        }
+        .prompt-button {
+            height: 40px;
+            color: white;
+            border-radius: 5px;
+            line-height: 20px;
+        }
+        .vegan {
+            background:rgba(0, 177, 106, 1.0);
+        }
+
+        .vegan:hover {
+            background:rgba(0, 177, 106, 0.75);
+        }
+
+        .meat {
+            background:rgba(244, 179, 80, 1.0);
+        }
+
+        .meat:hover {
+            background:rgba(244, 179, 80, 0.75);
+        }
+
+        .student {
+            background:rgba(68, 108, 179, 1.0);
+        }
+
+        .student:hover {
+            background:rgba(68, 108, 179, 0.75);
+        }
+
+        .item,
+        .item2 {
+            height: 300px;
+            width: 160px;
+            background-repeat: no-repeat;
+            background-cover: cover;
+        }
+
+        .item2 {
+            height: 600px;
+        }
+
+        .item3 {
+            height: 150px;
+            background-size: cover;
+        }
+
+        .x {
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 22px;
+            height: 22px;
+            position: relative;
+            right: -155px;
+            margin: 5px;
+            top: -330px;
+            background-image: url('close-x.png');
+        }
+
+        .carouselItem {
+            height: 300px;
+            width: 160px;
+            background-repeat: no-repeat;
+            background-cover: cover;
+        }
+
+        .owl-theme .owl-controls .owl-page {
+            display: inline-block;
+        }
+
+        .owl-theme .owl-controls .owl-page span {
+            background: none repeat scroll 0 0 #869791;
+            border-radius: 20px;
+            display: block;
+            height: 12px;
+            margin: 5px 7px;
+            opacity: 0.5;
+            width: 12px;
+        }
+
+        .addToCart {
+            width: 100px;
+            height: 40px;
+            /* background-color: green; */
+            position: relative;
+            bottom: 0px;
+            left: 0px;
+        }
+
+        .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 4; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+    </style>
+</head>
+
+<body style="margin: 0px;">
+    <div style="margin: 0px auto; position: relative; width: 1200px;">
+
+
+
+        <div style="background-image: url('header.png'); background-repeat: no-repeat; background-size: contain; height: 250px; width: 1200px;"></div>
+        <div style="position: absolute; right: 95px; z-index: 2; color: white; top: 220px; font-weight: 700;" class="cart">$0.00</div>
+        <h2>Welcome Gabriel, to Abbotsford!</h2>
+        <h2>Suggestions</h2>
+
+        <div class="owl-carousel owl-theme car1" style="width: 1160px; margin: 0px auto;">
+        </div>
+
+        <div style="float: left;">
+
+            <h2 style="">Recipes</h2>
+
+            <div style="border: 1px solid grey;">
+                <div style="height: 190px; width: 550px;clear: both;">
+                    <h3 style="float: left; margin-top: 80px; margin-left: 20px;">Mains</h3>
+                    <div class="owl-carousel owl-theme car3" style="width: 450px; margin: 0px auto; float: right;">
+                        <div class="item item3" id="1" style="background-image: url('main_recipe1-cover.jpg')" onclick="open1()"></div>
+                        <div class="item item3" id="2" style="background-image: url('main_recipe1-cover.jpg')" onclick="open1()"></div>
+                        <div class="item item3" id="3" style="background-image: url('main_recipe1-cover.jpg')" onclick="open1()"></div>
+                        <div class="item item3" id="4" style="background-image: url('main_recipe1-cover.jpg')" onclick="open1()"></div>
+                        <div class="item item3" id="5" style="background-image: url('main_recipe1-cover.jpg')" onclick="open1()"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div class="item2" style="">
+                        <div class="carouselItem" style="background-image: url('Bitmap2.png')">
+                            <div class="addToCart" onclick="addToCart(1.99)" style="bottom: 360px;"></div>
+                        </div>
+                        <div class="carouselItem" style="background-image: url('Bitmap3.png')">
+                            <div class="addToCart" onclick="addToCart(1.99)"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div style="border: 1px solid grey;">
+                <div style="height: 190px; width: 550px;clear: both;">
+                    <h3 style="float: left; margin-top: 80px; margin-left: 20px;">Starters</h3>
+                    <div class="owl-carousel owl-theme car3" style="width: 450px; margin: 0px auto; float: right;">
+                        <div class="item item3" id="1" style="background-image: url('starter_recipe1-cover.jpg')" onclick="addToCart(1.50)"></div>
+                        <div class="item item3" id="2" style="background-image: url('starter_recipe1-cover.jpg')" onclick="addToCart(1)"></div>
+                        <div class="item item3" id="3" style="background-image: url('starter_recipe1-cover.jpg')" onclick="addToCart(2)"></div>
+                        <div class="item item3" id="4" style="background-image: url('starter_recipe1-cover.jpg')" onclick="addToCart(1)"></div>
+                        <div class="item item3" id="5" style="background-image: url('starter_recipe1-cover.jpg')" onclick="addToCart(1)"></div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- <div id="myModal2" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Some text in the Modal..</p>
+                </div>
+            </div> -->
+
+            <div style="border: 1px solid grey;">
+                <div style="height: 190px; width: 550px;clear: both;">
+                    <h3 style="float: left; margin-top: 80px; margin-left: 20px;">Desserts</h3>
+                    <div class="owl-carousel owl-theme car3" style="width: 450px; margin: 0px auto; float: right;">
+                        <div class="item item3" id="1" style="background-image: url('des_recipe1-cover.jpg')" onclick="addToCart(1)"></div>
+                        <div class="item item3" id="2" style="background-image: url('des_recipe1-cover.jpg')" onclick="addToCart(1)"></div>
+                        <div class="item item3" id="3" style="background-image: url('des_recipe1-cover.jpg')" onclick="addToCart(1)"></div>
+                        <div class="item item3" id="4" style="background-image: url('des_recipe1-cover.jpg')" onclick="addToCart(1)"></div>
+                        <div class="item item3" id="5" style="background-image: url('des_recipe1-cover.jpg')" onclick="addToCart(1)"></div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- <div id="myModal3" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Some text in the Modal..</p>
+                </div>
+            </div> -->
+        </div>
+
+        <div style="float: right;">
+
+            <h2 style="">Popular Specials</h2>
+
+            <div class="owl-carousel car2" style="width: 550px;">
+                <div class="item2">
+                    <div class="carouselItem" style="background-image: url('Bitmap2.png')">
+                        <div class="addToCart" onclick="addToCart(1.99)" style="bottom: 360px;"></div>
+                    </div>
+                    <div class="carouselItem" style="background-image: url('Bitmap3.png')">
+                        <div class="addToCart" onclick="addToCart(1.99)"></div>
+                    </div>
+                </div>
+                <div class="item2">
+                    <div class="carouselItem" style="background-image: url('Bitmap1.png')">
+                        <div class="addToCart" onclick="addToCart(1.99)" style="bottom: 360px;"></div>
+                    </div>
+                    <div class="carouselItem" style="background-image: url('Bitmap4.png')">
+                        <div class="addToCart" onclick="addToCart(1.99)"></div>
+                    </div>
+                </div>
+                <div class="item2">
+                    <div class="carouselItem" style="background-image: url('Bitmap2.png')">
+                        <div class="addToCart" onclick="addToCart(1.99)" style="bottom: 360px;"></div>
+                    </div>
+                    <div class="carouselItem" style="background-image: url('Bitmap3.png')">
+                        <div class="addToCart" onclick="addToCart(1.99)"></div>
+                    </div>
+                </div>
+                <div class="item2">
+                    <div class="carouselItem" style="background-image: url('Bitmap1.png')">
+                        <div class="addToCart" onclick="addToCart(1.99)" style="bottom: 360px;"></div>
+                    </div>
+                    <div class="carouselItem" style="background-image: url('Bitmap4.png')">
+                        <div class="addToCart" onclick="addToCart(1.99)"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <script   src="https://code.jquery.com/jquery-1.11.0.min.js"   integrity="sha256-spTpc4lvj4dOkKjrGokIrHkJgNA0xMS98Pw9N7ir9oI="   crossorigin="anonymous"></script>
+        <!-- <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+        <script src="owlcarousel/owl.carousel.min.js"></script>
+        <script src="vanilla-js-carousel.min.js"></script>
+
+        <script type="text/javascript">
+            // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on the button, open the modal
+            function open1() {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            var currentCart = 0
+            var $carousel = null;
+            var firstTime = true;
+            var veganLabel = "Vegetarian & Vegan";
+            var meatLabel = "Meat Lover";
+            var studentLabel = "Broke Student";
+
+            function disappear(obj) {
+                $(obj).parent().fadeOut(500, function () { } ) //$(this).fadeIn(0, function () { $(this).css('background-image', 'url("Bitmap3.png")') }) })
+                $('.car1').trigger('refresh.owl.carousel');
+                if (firstTime) {
+                    alert("You will not see this item again.")
+                    firstTime = false;
+                }
+            }
+
+            function addToCart(num) {
+                currentCart += num
+                $('.cart').html('$' + parseFloat(currentCart).toFixed(2))
+            }
+
+            var carouselName = "owl-carousel owl-theme car1";
+            var carouselNode;
+
+            var veganProducts = [
+                { "name" : "Green Giant Cauliflower Veggie Tots", "price" : "5.99", "url" : "categories/vegetarian/veggietots.jpg"},
+                { "name" : "Field Roast Hand-Formed Vegan Burger Patties", "price" : "3.99", "url" : "categories/vegetarian/veganburger.jpg"},
+                { "name" : "Kashi Sweet Potato Quinoa Bowl Frozen Entree", "price" : "2.99", "url" : "categories/vegetarian/kashiquinoabowl.png"},
+                { "name" : "Amy's Light & Lean Pasta & Veggies", "price" : "2.99", "url" : "categories/vegetarian/amyslightnlean.jpg"},
+                { "name" : "Gardein Mandarin Orange Crispy Chick'n", "price" : "7.99", "url" : "categories/vegetarian/mardarinorangechickn.jpg"},
+                { "name" : "Silk Soymilk Original", "price" : "2.99", "url" : "categories/vegetarian/soymilk.jpeg"},
+                { "name" : "Becel® Vegan Margarine 1lb", "price" : "2.97", "url" : "categories/vegetarian/becel.jpg"},
+                { "name" : "BUSH'S® Brown Sugar Hickory Baked Beans", "price" : "1.67", "url" : "categories/vegetarian/bakedbeans.jpg"},
+                { "name" : "Casbah Organic Quinoa", "price" : "1.67", "url" : "categories/vegetarian/quinoa.jpg"},
+                { "name" : "Sunrise Medium Firm Tofu", "price" : "2.27", "url" : "categories/vegetarian/tofu.jpg"},
+                { "name" : "Minute Rice 100% Premium Long Grain Rice Jumbo", "price" : "7.77", "url" : "categories/vegetarian/rice.jpg"},
+                { "name" : "Broccoli", "price" : "2.97", "url" : "categories/vegetarian/broccoli.jpg"},
+                { "name" : "Baby Carrots", "price" : "2.97", "url" : "categories/vegetarian/carrots.jpg"},
+                { "name" : "Cybele's Free-to-Eat Chocolate Chip Vegan & Gluten Free Cookies, 6 oz", "price" : "2.97", "url" : "categories/vegetarian/cookies.jpeg"}
+            ]
+
+            var meatProducts = [
+                { "name" : "Duke's Hot & Spicy Smoked 'SHORTY' Sausages 5 oz", "price" : "5.48", "url" : "categories/meatlovers/dukesausage.jpeg"},
+                { "name" : "Harvestland Chicken Breast Individually Wrapped Frozen, 2.25 lbs.", "price" : "8.78", "url" : "categories/meatlovers/chickenbreast.jpeg"},
+                { "name" : "McCain BBQ Meatlovers Family Pizza", "price" : "13.95", "url" : "categories/meatlovers/meatloverspizza.png"},
+                { "name" : "Tyson Any'tizers Buffalo Style Hot Wings, 28 oz", "price" : "7.99", "url" : "categories/meatlovers/hotwings.jpeg"},
+                { "name" : "AAA Angus Beef Striploin Steak", "price" : "7.99", "url" : "categories/meatlovers/steak.jpg"},
+                { "name" : "A1 Original Steak Sauce", "price" : "4.97", "url" : "categories/meatlovers/a1.jpg"},
+                { "name" : "Oscar Mayer Bacon 16 oz", "price" : "4.99", "url" : "categories/meatlovers/bacon.jpeg"},
+                { "name" : "Hillshire Farm Smoked Sausage, 14.0 OZ", "price" : "3.83", "url" : "categories/meatlovers/sausage.jpeg"},
+                { "name" : "Jack Daniel’s Baby Back Pork Ribs", "price" : "11.49", "url" : "categories/meatlovers/ribs.jpeg"},
+                { "name" : "Banquet Crispy Chicken Family Pack", "price" : "19.99", "url" : "categories/meatlovers/friedchicken.png"},
+                { "name" : "Lundy All Natural Bnls Center Cut Pork Chop", "price" : "4.99", "url" : "categories/meatlovers/porkchop.jpeg"},
+                { "name" : "Mama Mary's Gourmet Pepperoni, 6.0 OZ", "price" : "3.82", "url" : "categories/meatlovers/pepperoni.jpeg"},
+                { "name" : "Grass-fed Beef, Ribeye Steak, 8.0 oz", "price" : "7.88", "url" : "categories/meatlovers/ribeyesteak.jpeg"}
+            ]
+
+            var studentProducts = [
+                { "name" : "Imperial Dragon Jasmine Rice, 20 lb", "price" : "14.98", "url" : "categories/student/rice.jpeg"},
+                { "name" : "Quaker® Popped® Caramel Corn Rice Crisps 7.04 oz. Bag", "price" : "2.98", "url" : "categories/student/popped.jpeg"},
+                { "name" : "Nongshim Gourmet Spicy Shin Ramyun Noodle Soup, 4.2 oz, 5 pack", "price" : "8.89", "url" : "categories/student/shinramyun.jpg"},
+                { "name" : "Steamfresh Broccoli Carrots Sugar Snap Peas & Water Chestnuts", "price" : "2.39", "url" : "categories/student/veggies.jpg"},
+                { "name" : "Maruchan Ramen Noodle Soup Chicken Flavor, 3.0 oz", "price" : "0.69", "url" : "categories/student/ramen.jpeg"},
+                { "name" : "Foster Farms Crispy Strips Chicken Breast Strip Fritters, 40oz", "price" : "10.99", "url" : "categories/student/crispystrips.jpeg"},
+                { "name" : "Clif Bar 12 pack", "price" : "11.45", "url" : "categories/student/cliffbars.png"},
+                { "name" : "Shamrock Farms 2% Reduced Fat Mmmmilk, 1 gal", "price" : "3.39", "url" : "categories/student/milk.jpeg"},
+                { "name" : "Minute Maid Premium Original 100% Juice Orange, 128 fl oz", "price" : "3.99", "url" : "categories/student/orangejuice.jpeg"},
+                { "name" : "Ragú Old World Style Traditional Sauce 24 oz", "price" : "2.99", "url" : "categories/student/ragu.jpeg"},
+                { "name" : "DIGIORNO Rising Crust Pepperoni Pizza 27.5 oz. Box", "price" : "4.99", "url" : "categories/student/digiorno.jpeg"},
+                { "name" : "Barilla Rotini", "price" : "1.97", "url" : "categories/student/rotini.jpg"},
+                { "name" : "BUSH'S® Homestyle Tangy Sauce with Bacon and Brown Sugar Baked Beans", "price" : "1.67", "url" : "categories/student/beans.jpg"},
+                { "name" : "Old El Paso™ Restaurante Grande Shells 6 ct 21.5 oz Bag", "price" : "2.99", "url" : "categories/student/tortillas.jpeg"},
+                { "name" : "Udi’s Bagels", "price" : "3.99", "url" : "categories/student/bagels.png"},
+                { "name" : "Bananas", "price" : "0.69", "url" : "categories/student/bananas.jpg"},
+                { "name" : "Tomatoes", "price" : "1.29", "url" : "categories/student/tomatoes.jpg"},
+                { "name" : "Franzia Boxed Wine", "price" : "7.99", "url" : "categories/student/franzia.jpg"},
+
+            ]
+
+            function addProductsToCarousel(products) {
+                for (var i = 0; i < products.length; i++) {
+                    addProductToCarousel(products[i]);
+                }
+            }
+
+            function addProductToCarousel(product) {
+
+                var itemNode = document.createElement("div");
+                itemNode.className = "item";
+
+                var itemImageNode = document.createElement("img");
+                itemImageNode.className = "carouselItemImage";
+                itemImageNode.src = product.url;
+
+                var itemNameNode = document.createElement("p");
+                itemNameNode.textContent = product.name;
+                itemNameNode.className = "carouselProductName";
+
+                var itemPriceNode = document.createElement("p");
+                itemPriceNode.textContent = "$" + product.price;
+                itemPriceNode.className = "carouselProductPrice";
+
+                var addToCartNode = document.createElement("div");
+                addToCartNode.className = "addToCart";
+                addToCartNode.onclick = function () { addToCart(product.price) };
+
+                var addToCartImg = document.createElement("img");
+                addToCartImg.className = "addToCartImg";
+                addToCartImg.src = "addbutton.png";
+
+                addToCartNode.appendChild(addToCartImg);
+
+                var xNode = document.createElement("div");
+                xNode.className = "x";
+                xNode.onclick = function() { disappear(this) };
+
+                itemNode.appendChild(itemImageNode);
+                itemNode.appendChild(itemNameNode);
+                itemNode.appendChild(itemPriceNode);
+                itemNode.appendChild(addToCartNode);
+                itemNode.appendChild(xNode);
+
+                if (carouselNode != undefined) {
+                    carouselNode.appendChild(itemNode);
+                }
+            }
+
+            function registerPreferences() {
+                console.log(this.textContent);
+                var nodeContent = this.textContent;
+                var productList;
+
+                if (nodeContent == veganLabel) {
+                    productList = veganProducts;
+                } else if (nodeContent == meatLabel) {
+                    productList = meatProducts;
+                } else if (nodeContent == studentLabel) {
+                    productList = studentProducts;
+                }
+
+                addProductsToCarousel(productList);
+
+                $('.car1').owlCarousel({
+                    loop: true,
+                    margin: 10,
+                    //nav:true,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        600: {
+                            items: 3
+                        },
+                        1000: {
+                            items: 5
+                        }
+                    },
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    autoplayHoverPause: true
+                })
+
+                var modal = document.getElementsByClassName("prompt-background")[0];
+                modal.style.display = "none";
+            }
+
+            $(document).ready(function () {
+
+                carouselNode = document.getElementsByClassName(carouselName)[0];
+                console.log(carouselNode);
+
+                var buttons = document.getElementsByClassName("prompt-button");
+                for (var i = 0; i < buttons.length; i++) {
+                    var button = buttons[i];
+                    button.addEventListener("click", registerPreferences);
+                }
+
+
+                $('.car2').owlCarousel({
+                    loop: false,
+                    margin: 10,
+                    //nav:true,
+                    responsive: {
+                        0: {
+                            items: 2
+                        },
+                        600: {
+                            items: 2
+                        },
+                        1000: {
+                            items: 2
+                        }
+                    },
+                    dots: true,
+                    autoplay: false,
+                    autoplayTimeout: 3000,
+                    autoplayHoverPause: true
+                })
+                $('.car3').owlCarousel({
+                    loop: false,
+                    margin: 10,
+                    //nav:true,
+                    responsive: {
+                        0: {
+                            items: 2
+                        },
+                        600: {
+                            items: 2
+                        },
+                        1000: {
+                            items: 2
+                        }
+                    },
+                    dots: false,
+                    autoplay: false,
+                    autoplayTimeout: 3000,
+                    autoplayHoverPause: true
+                })
+            });
+        </script>
+    </div>
+
+</body>
+
+<footer>
+    <div class="prompt-background" data-popup="popup-1">
+        <div class="popup-inner">
+            <h2>Which profile best describes you?</h2>
+            <p class="prompt-button vegan">Vegetarian & Vegan</p>
+            <p class="prompt-button meat">Meat Lover</p>
+            <p class="prompt-button student">Broke Student</p>
+        </div>
+    </div>
+</footer>
+
+</html>
